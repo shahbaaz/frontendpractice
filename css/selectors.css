@@ -1,0 +1,56 @@
+/* type selectors */
+body {
+  font-size: 18px;
+}
+
+p {
+  color: hsla(275, 85%, 75%, 0.9);
+}
+
+h1 {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* class selectors */
+.lorem {
+  color: rebeccapurple;
+}
+
+.main {
+  background:peru;
+}
+
+.highlighted {
+  background: turquoise;
+  color: green;
+}
+
+.spotlight {
+  border: 2px solid #764584;
+  padding: 10px;
+}
+
+#ordered {
+  color: blue;
+  font-size: 12px;
+}
+
+a {
+  color: white;
+}
+
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: violet;
+}
+
+a:hover {
+  color: black;
+}
+
+a:active {
+  color: green;
+}
