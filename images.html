@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Images</title>
+  <style>
+    body {
+      background: url("images/background-leaves.jpg");
+    }
+
+    h1, h2, h3 {
+      margin-left: 40px;
+    }
+
+    h2 {
+      font-family: cursive;
+    }
+
+    .myimage {
+      float: left;
+      /*margin: 20px; 
+      margin-top: 20px;
+      margin-right: 10px;
+      margin-bottom: 25px;
+      margin-left: 30px; */
+      margin: 20px 10px 25px 30px;
+      /* top right bottom left */
+      border: 5px solid rebeccapurple;
+      /* padding: 20px; 
+      padding-top: 25px;
+      padding-right: 32px;
+      padding-bottom: 15px;
+      padding-left: 40px; */
+      /*padding: 25px 50px 15px 40px; */
+      padding: 20px 30px;
+
+    }
+
+    .lorem {
+      background: url("images/cool-vintage-backgrounds.jpg");
+      color: white;
+    }
+
+    .lists {
+      clear: both;
+    }
+
+    ul {
+      list-style-type: circle;
+      /* disc, circle, square, none */
+    }
+
+    .anotherclass {
+      font-size: 20px;
+    }
+
+    .lists h2 {
+      color:peru;
+    }
+
+    .lists ul li {
+      color:olivedrab;
+    }
+
+  </style>
+</head>
+<body>
+  <h1 class="lorem">HTML Images</h1>
+  <img src="http://via.placeholder.com/480x300" alt="placeholder image">
+  <br>
+  <h2>Absolute images</h2>
+  <div>
+    <h3>Floated image and paragraph</h3>
+    <img src="images/moons/apollo11fullmoon.jpg" alt="apollo 11 full moon" width="360px" class="myimage">
+    <p class="lorem anotherclass">Hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus maxime eius accusamus quis necessitatibus ipsum, quos voluptatibus itaque velit vel rerum possimus ipsa. Nihil nemo itaque, ad repellat laborum alias.</p>
+  </div>
+  <div class="lists">
+    <h2>Tasks to be completed</h2>
+    <ul>
+      <li>Learn all HTML tags from w3schools</li>
+      <li>practice html tags along with css</li>
+      <li>push all the practice to github repository</li>
+    </ul>
+    <h2>Tasks completed</h2>
+    <ol type="i">
+      <!--type options: 1, A, a, I, i-->
+      <li>HTML tables</li>
+      <li>HTML links and images</li>
+      <li>CSS selectors</li>
+    </ol>
+  </div>
+
+</body>
+</html>
