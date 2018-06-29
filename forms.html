@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Forms</title>
+  <style>
+    .form-item {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML Forms</h1>
+  <p>All fields with * are required</p>
+  <form action="">
+    <fieldset>
+      <legend>Personal Info</legend>
+      <div class="form-item">
+        <label for="firstName">First Name *</label>
+        <input type="text" name="firstName" id="firstName" placeholder="Enter your first name" required>
+      </div>
+      <div class="form-item">
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" id="lastName">
+      </div>
+    </fieldset>
+
+    <div class="form-item">
+        <label for="email">Email Address *</label>
+        <input type="email" name="email" id="email" required>
+    </div>
+    <div class="form-item">
+      <label for="dateOfBirth">Date of Birth</label>
+      <input type="date" name="dateOfBirth" id="dateOfBirth">
+    </div>
+    <div class="form-item">
+      <label for="address">Address</label>
+      <textarea name="address" id="address" cols="35" rows="10"></textarea>
+    </div>
+    <div class="form-item">
+      <label for="">Gender</label>
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female" checked> Female
+    </div>
+    <div class="form-item">
+      <label for="">Favorite subjects</label><br>
+      <input type="checkbox" name="favorite_subject" value="computers">Computers <br>
+      <input type="checkbox" name="favorite_subject" value="maths" checked> Maths <br>
+      <input type="checkbox" name="favorite_subject" value="astronomy"> Astronomy <br>
+      <input type="checkbox" name="favorite_subject" value="physics"> Physics
+    </div>
+    <div class="form-item">
+      <label for="favorite_sport">Favorite Sport</label>
+      <select name="favorite_sport" id="favorite_sport">
+        <option value="">Select</option>
+        <option value="cricket">Cricket</option>
+        <option value="football">Foot ball</option>
+        <option value="tennis">Tennis</option>
+        <option value="soccer" selected>Soccer</option>
+        <option value="baseball">Base ball</option>
+        <option value="basketball">Basket ball</option>
+      </select>
+    </div>
+    <div class="form-item">
+      <label for="resume">Resume</label>
+      <input type="file" name="resume" id="resume">
+    </div>
+    <input type="submit" id="register" name="register" value="Register">
+    <input type="reset">
+  </form>
+</body>
+</html>
