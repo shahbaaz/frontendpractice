@@ -1,0 +1,49 @@
+html {
+  font-size: 10px;
+}
+@font-face {
+  font-family: AlexBrush;
+  src: url('../fonts/AlexBrush-Regular.ttf');
+}
+h1 {
+  font-family: AlexBrush;
+  font-size: 3rem;
+}
+p {
+  font-family: AlexBrush;
+}
+.differentFont {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+div {
+  font-size: 2em;
+  text-align: center;
+}
+.roboto {
+  font-family: 'Roboto Condensed';
+  font-weight: 700; /* 100, 200, 300, 400, 500, 600, 700, 800 and 900 */
+  /*keywords: lighter, bolder, bold = 700, light, normal = 400 */
+  /*font-size: 0.5em; /* parent div -> font-size 40px == 1em */
+  font-style: italic;
+  font-size: 1.5rem; /* html-> font-size = 10px -> 1rem = 10px;*/
+  line-height: 200%;
+}
+
+section {
+  font-style: normal; /* normal, italic, oblique */
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: line-through; /* overline, underline, line-through, none */
+}
+
+p.anotherClass {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+}
+
