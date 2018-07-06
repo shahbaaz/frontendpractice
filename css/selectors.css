@@ -55,3 +55,95 @@ a:hover {
 a:active {
   color: green;
 }
+
+/* [attr] {} */
+[abcd] {
+  color: white;
+  background-color: #764584;
+}
+
+/* [attr="value"] */
+[abcd="xyz"] {
+  color: royalblue;
+  background-color: bisque;
+}
+
+/* child combinators */
+.parent p {
+  color: green;
+}
+
+.parent > p {
+  color: blue;
+}
+
+/* sibling combinators */
+/* + target only one following item */
+.siblings h2 + p {
+  color: white;
+}
+
+/* ~ targets all the following items */
+.siblings h2 ~ p {
+  color: red;
+}
+
+/* pseudo-class selectors 
+:first-child
+:last-child
+:first-of-type
+:last-of-type
+:nth-child(n) 
+n can be "even" or "odd" or any single positive integer
+:nth-child(an+b)
+a = any number
+n = n and starts with a value of 0
+b = any number
+
+:nth-of-type(). Same arguments as nth-child
+*/
+
+div.parent p:first-child {
+  font-size: 25px;
+}
+
+div.parent p:last-child {
+  background-color: powderblue;
+}
+
+ul.parentList li:first-of-type {
+  color: blue;
+}
+
+ul.parentList li:last-of-type {
+  color: greenyellow;
+}
+
+ul.parentList li:nth-child(3) {
+  color: purple;
+  text-decoration: overline;
+}
+
+ul.parentList li:nth-child(even) {
+  font-style: italic;
+}
+
+ul.parentList li:nth-child(3n+1) {
+  /* 1, 4, 7 ... */
+  background-color: plum;
+}
+
+/* pseudo-element selectors 
+:before
+:after
+*/
+p:before {
+  content: '👍🏻';
+  background: blue;
+}
+
+p::after {
+  content: '\0298';
+  color: white;
+}
+
