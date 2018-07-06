@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Floats</title>
+  <style>
+    /* box model fix*/
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    img {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .clearme {
+      clear: both;
+    }
+
+    .parent {
+      background: khaki;
+      /* self clearing parent element because of floated children elements*/
+     /* overflow: auto; /* hidden */
+    }
+
+    .floated {
+      float: left;
+      background: lightgreen;
+    }
+
+    /* clearfix hack */
+    .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    /*
+        400px width
+        + 30px padding-left
+        + 30px padding-right
+        + 25px border-left
+        + 25px border-right
+        -------------------
+        510px total width
+        -------------------
+
+        200px height
+        + 30px padding-top
+        + 30px padding-bottom
+        + 25px border-top
+        + 25px border-bottom
+        ---------------------
+        310px total height
+        ---------------------
+    
+    */
+
+    .parent-box {
+      background: aquamarine;
+    }
+
+    .box {
+      width: 100%;
+      height: 200px;
+      background: olive;
+      padding: 30px;
+      border: 25px solid yellowgreen;
+    }
+
+    /* box-sizing */
+
+  </style>
+</head>
+<body>
+  <div>
+    <img src="images/moons/apollo11fullmoon.jpg" width="200px" alt="apollo 11 moon">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo doloribus, reprehenderit molestiae consequuntur dolor minima sint non autem expedita saepe numquam aperiam adipisci qui impedit excepturi deleniti, optio rem nisi!</p>
+  </div>
+  <div class="clearme">
+    <h1>Hello world!</h1>
+  </div>
+
+  <div class="parent clearfix">
+    <div class="floated">Floated element 1</div>
+    <div class="floated">Floated element 2</div>
+  </div>
+
+  <div class="parent-box">
+    <div class="box">
+
+    </div>
+  </div>
+  
+</body>
+</html>
