@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Layering and z-index</title>
+  <style>
+    html {
+      background: #ccc;
+    }
+
+    body {
+      background: white;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+
+    }
+
+    /* z-index will work only if an element have position property */
+    .box1 {
+      background: rgb(201, 177, 177);
+      position: relative;
+      z-index: 100;
+    }
+
+    .box2 {
+      background:darkslategrey;
+      position: relative;
+      margin: -160px 0 0 20px;
+      z-index: 200;
+    }
+
+    .float {
+      background: skyblue;
+      float: left;
+      margin: -150px 0 0 130px;
+      z-index: 300;
+    }
+
+    .inline {
+      background:royalblue;
+      padding: 10px 40px 10px 10px;
+    }
+
+    .position {
+      clear: both;
+      background: orange;
+      position: relative;
+      left: 150px;
+      top: -160px;
+      height: 140px;
+    }
+
+    /*
+    Natural stacking order
+    1. The root element <html>
+    2. The viewport <body>
+    3. Block level elements in the normal page flow
+    4. Floated elements, not positioned
+    5. Inline descendant elements
+    6. Positioned elements
+    */
+  </style>
+</head>
+<body>
+  <p>body content</p>
+  <div class="box1">box 1</div>
+  <div class="box2">box 2</div>
+  <div class="float">
+    <p>float</p>
+    <span class="inline">inline</span>
+  </div>
+  <div class="position">position</div>
+</body>
+</html>

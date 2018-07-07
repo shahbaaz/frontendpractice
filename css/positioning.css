@@ -1,0 +1,39 @@
+.box {
+  background: olivedrab;
+  width: 200px;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+/*
+position: relative, absolute, fixed, inherit, static
+*/
+
+/*
+ offset properties
+ top, left, bottom, right
+*/
+
+.parent {
+  background-color: purple;
+  position: relative;
+}
+
+.relative {
+  position: relative;
+  background-color: blue;
+  top: 50px;
+  left: 100px;
+}
+
+.absolute {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  background-color: yellowgreen;
+}
+
+.fixed {
+  position: fixed;
+  top: 20px;
+}
