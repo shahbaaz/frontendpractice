@@ -1,0 +1,64 @@
+/* Media queries */
+/* media types: all, screen, print, speech */
+@media screen {
+  /* styles for screen devices */
+}
+
+@media print {
+  /* styles for print devices */
+}
+
+html {
+  font-size: 20px; /* 1rem = 20px; */
+}
+
+body {
+  background: red;
+}
+
+h1 {
+  color: brown;
+}
+/*
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  body {
+    background: blue;
+  }
+
+  h1 {
+    color: white;
+  }
+}
+*/
+
+p {
+  color: white;
+}
+
+@media screen and (min-device-width: 800px) and (max-device-width: 1024px) {
+
+}
+
+@media (min-width: 500px) and (min-aspect-ratio: 2/1) {
+  background: rebeccapurple;
+  color: yellowgreen;
+}
+
+@media not screen {
+
+}
+
+/* for retina screens */
+@media screen and (min-resolution: 190dpi), (-webkit-min-device-pixel-ratio: 2) {
+  
+}
+
+/*
+browser prfixes
+
+chrome and safari: -webkit-
+mozilla based browsers: -moz-
+opera: -o-
+ie: -ms-
+*/
+
