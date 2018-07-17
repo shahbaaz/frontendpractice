@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Grids</title>
+  <style>
+    .container {
+      display: grid;
+      /*grid-template-columns: 1fr 2fr 1fr;
+      grid-template-columns: repeat(3, 2fr 3fr 1fr); */
+      grid-template-columns: repeat(3, 1fr);
+      /*grid-auto-rows: 120px; fixed height */
+      grid-auto-rows: minmax(100px, auto);
+      grid-gap: 1em;
+    }
+
+    .container > div {
+      background: #eee;
+      padding: 1em;
+    }
+
+    .container > div:nth-child(odd) { /* 1, 3, 5, 7 ..*/
+      background: peachpuff;
+    }
+
+    .nested {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 70px;
+      grid-gap: 1em;
+    }
+
+    .nested > div {
+      border: 1px solid #333;
+      padding: 10px;
+    }
+  
+  </style>
+</head>
+<body>
+  <h1>CSS Grids</h1>
+  <div class="container">
+    <div>Lorem ipsum dolor sit.</div>
+    <div>Lorem ipsum dolor sit.</div>
+    <div>Lorem ipsum dolor sit.</div>
+    <div class="nested">
+      <div>lorem</div>
+      <div>lorem</div>
+      <div>lorem</div>
+      <div>lorem</div>
+      <div>lorem</div>
+      <div>lorem</div>
+      <div>lorem</div>
+      <div>lorem</div>
+    </div>
+    <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit facere consequatur beatae commodi officiis atque expedita possimus saepe eos deleniti. Quos quisquam qui esse excepturi maxime nostrum mollitia officiis porro! Earum quo sequi illum est. Error sint quo iure omnis dolorum at culpa nostrum saepe delectus, similique non dignissimos. Fugit?</div>
+    <div>Lorem ipsum dolor sit.</div>
+    <div>Lorem ipsum dolor sit.</div>
+    <div>Lorem ipsum dolor sit.</div>
+    <div>Lorem ipsum dolor sit.</div>
+    <div>Lorem ipsum dolor sit.</div>
+  </div>
+</body>
+</html>
