@@ -1,0 +1,53 @@
+/* Global css variables */
+:root {
+  --main-bg-color: rgb(245, 217, 217);
+  --main-text-color: #333;
+  --main-heading-color: #874523;
+  --container-width: 90%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+.container {
+  width: var(--container-width);
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-auto-rows: 300px;
+  grid-gap: 20px;
+}
+
+h1 {
+  color: var(--main-heading-color);
+}
+
+/* Local css variables */
+.box {
+  --box-bg-color: #ddd;
+  --box-main-color: rgb(17, 148, 109);
+  --box-padding: 5px 10px;
+}
+
+.box {
+  background-color: var(--box-bg-color);
+  padding: var(--box-padding);
+  border: 1px solid var(--box-main-color);
+  box-shadow: 5px 10px 7px var(--box-main-color);
+  /* offset-x offset-y blur color */
+  /*border-radius: 50%; */
+}
+
+.box h2 {
+  color: var(--box-main-color);
+}
+
+.box p {
+  --box-main-color: olive;
+  color: var(--box-main-color);
+}
