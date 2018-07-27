@@ -1,8 +1,8 @@
 // Create arrays
-const numbers = [2,5,76,34,56];
-const numbers2 = new Array(34,5,87,234,87);
-const fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Peach'];
-const mixedArray = [23, 'hello', true, undefined, null, {a: 1, b: 2}, new Date()];
+// const numbers = [2,5,76,34,56];
+// const numbers2 = new Array(34,5,87,234,87);
+// const fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Peach'];
+// const mixedArray = [23, 'hello', true, undefined, null, {a: 1, b: 2}, new Date()];
 // console.log(numbers);
 // console.log(numbers2);
 // console.log(fruits);
@@ -79,10 +79,17 @@ const mixedArray = [23, 'hello', true, undefined, null, {a: 1, b: 2}, new Date()
 // val = numbers2.find(function(x) {
 //   return x < 50;
 // });
-val = fruits.sort(function(a, b) {
-  if (a < b) return 1;
-  if (a > b) return -1;
-  return 0;
-});
+// val = fruits.sort(function(a, b) {
+//   if (a < b) return 1;
+//   if (a > b) return -1;
+//   return 0;
+// });
+let val;
+
+const fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Peach'];
+
+fruits.splice(-2, 1, 'grapes', 'kiwi');
+
+val = fruits;
 
 console.log(val);
