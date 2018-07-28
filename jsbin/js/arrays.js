@@ -88,7 +88,9 @@ let val;
 
 const fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Peach'];
 
-fruits.splice(-2, 1, 'grapes', 'kiwi');
+// fruits.splice(-2, 1, 'grapes', 'kiwi');
+
+fruits[fruits.length] = 'kiwi';
 
 val = fruits;
 
