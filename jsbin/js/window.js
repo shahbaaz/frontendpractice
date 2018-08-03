@@ -1,18 +1,20 @@
-// myObj = {
-//   abc: 123,
-//   cde: 'hello',
-//   myMethod: function() {
-//     console.log('I am the method of an object');
-//   }
-// };
+myObj = {
+  abc: 123,
+  cde: 'hello',
+  myMethod: function() {
+    console.log('I am the method of an object');
+  }
+};
 
 // console.log(myObj.myMethod());
+// console.log(myObj.abc);
+//window.console.log(myObj);
 // In a browser, the global object is window
-// console.log(window);
-// alert('hello');
-// alert('hi');
+//window.console.log(window);
+//alert('hello');
+// // alert('hi');
 // window.console.log(123);
-
+//window.console.log(window.console);
 // prompt
 // const input = prompt();
 // console.log('User entered ', input);
@@ -46,7 +48,13 @@ val = window.location.href;
 val = window.location.search; // query parameter in url
 
 // Reload
-// window.location.href = 'https://google.com';
+// window.location.href = 'https://yahoo.com';
+
+function redirectToTwitter() {
+  window.location.href = 'https://twitter.com';
+}
+
+// setTimeout(redirectToTwitter, 5000);
 
 // Reload
 // window.location.reload();
@@ -63,4 +71,7 @@ val = window.navigator.userAgent;
 val = window.navigator.platform;
 val = window.navigator.vendor;
 val = window.navigator.language;
+
+val = document.body;
+// Document object model
 console.log(val);
