@@ -72,6 +72,6 @@ val = window.navigator.platform;
 val = window.navigator.vendor;
 val = window.navigator.language;
 
-val = document.body;
+val = window.document.body;
 // Document object model
 console.log(val);
