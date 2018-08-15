@@ -3,6 +3,7 @@
 //   event.preventDefault();
 // });
 
+
 document.querySelector('.clear-tasks').addEventListener('click', handleClick);
 
 function handleClick(event) {
@@ -37,3 +38,4 @@ function handleClick(event) {
 
   console.log(val);
 }
+
