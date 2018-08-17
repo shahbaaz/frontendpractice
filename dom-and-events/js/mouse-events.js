@@ -29,3 +29,4 @@ function eventHandler(event) {
 
   document.body.style.backgroundColor = `rgb(${event.offsetX}, ${event.offsetY}, 50)`;
 }
+
