@@ -93,6 +93,42 @@ todo.add();
 todo.edit(23);
 todo.delete();
 
+// Two types functions
+// Pure functions and Impure functions
+
+// Pure functions: For same input, same result or same output
+function add(a, b) {
+  return a + b;
+}
+
+// Input 2, 3
+console.log('Pure function', add(2, 3)); // output: 5
+console.log('Pure function', add(2, 3)); // output: 5
+console.log('Pure function', add(2, 3));
+console.log('Pure function', add(2, 3));
+console.log('Pure function', add(2, 3));
+// Impure functions: For same input, different result of different output
+let myNumber = 5;
+// myNumber = myNumber + 2; // 7
+// myNumber += 2;
+
+function doSomething(x, y) {
+  myNumber++; // 6 myNumber = myNumber + 1
+  // myNumber = myNumber + 1;
+  // myNumber += 1; 
+  //     2 + 3 + 6
+  //     2 + 3 + 7
+  //     2 + 3 + 8
+  return x + y + myNumber;
+}
+
+console.log('Impure function', doSomething(2, 3)); // 11
+console.log('Impure function', doSomething(2, 3)); // 12
+console.log('Impure function', doSomething(2, 3));
+console.log('Impure function', doSomething(2, 3));
+console.log('Impure function', doSomething(2, 3));
+
+
 
 
 
