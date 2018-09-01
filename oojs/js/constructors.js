@@ -123,17 +123,17 @@ const today = new Date();
 
 // console.log(john.name);
 
-function Person(name) {
-  this.name = name;
-  const age = 32;
-  this.getAge = function() {
-    return age;
-  }
-}
+// function Person(name) {
+//   this.name = name;
+//   const age = 32;
+//   this.getAge = function() {
+//     return age;
+//   }
+// }
 
-const john = new Person('John');
+// const john = new Person('John');
 
-console.log(john.getAge());
+// console.log(john.getAge());
 
 function Car(make, model) {
   this.make = make;
@@ -144,9 +144,9 @@ function Car(make, model) {
 const camry = new Car('Toyota', 'Camry XLE');
 const myCar = new Car('Mercedes Benz', 'E 320');
 
-console.log(myCar);
-console.log(camry.model);
-console.log(myCar.make);
+// console.log(myCar);
+// console.log(camry.model);
+// console.log(myCar.make);
 
 const myObj = [
   { prop1: 'val1', prop2: ['abc', 'cde', 'efg'] },
@@ -159,6 +159,49 @@ const myObj = [
  * <MyComponent prop={myObj} />
  */
 
+
+//  function Person(name, dob) {
+//   this.name = name;
+//   this.birthday = new Date(dob);
+//   this.getAge = function() {
+//     const diff = Date.now() - this.birthday.getTime();
+//     const ageDate = new Date(diff);
+//     return ageDate.getUTCFullYear() - 1970;
+//   };
+//  }
+
+//  const john = new Person('John', '08-29-1936');
+
+//  console.log(john.getAge());
+
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  // this.getFullName = function() {
+  //   return `${this.firstName} ${this.lastName}`;
+  // }
+}
+
+Person.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+}
+
+const john = new Person('John', 'McCain');
+console.log(john.getFullName());
+console.log(john.hasOwnProperty('firstName'));
+console.log(john.hasOwnProperty('getFullName'));
+console.log(Person.prototype.constructor);
+
+const steve = new Person('Steve', 'Jobs');
+console.log(steve);
+
+// Prototypal inheritance
+// Object.prototype
+// Person.prototype
+// Calling object direct properties
+const myArr = [1,2,33,5];
+myArr.push(6);
+console.log(myArr);
 
 
 
