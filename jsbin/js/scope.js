@@ -14,13 +14,13 @@ function test() {
 
 test();
 
-// if (true) {
-//   // block scope
-//   var x = 4;
-//   let y = 5;
-//   const z = 6;
-//   console.log(`If scope: x = ${x}, y = ${y}, z = ${z}`);
-// }
+if (true) {
+  // block scope
+  var x = 8;
+  let y = 5;
+  const z = 6;
+  console.log(`If scope: x = ${x}, y = ${y}, z = ${z}`);
+}
 
 for (var x = 0; x < 10; x++) {
   console.log(`Loop: ${x}`);
