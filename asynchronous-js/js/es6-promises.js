@@ -3,28 +3,28 @@
  * resolve or reject
  */
 
-//  const myPromise = new Promise(function(resolve, reject) {
-//   // some code 
-//   const error = false;
-//   const successData = 'success data';
-//   const errData = 'error data';
-//   if (!error) {
-//     resolve(successData);
-//   } else {
-//     reject(errData);
-//   }
-//  });
+ const myPromise = new Promise(function(resolve, reject) {
+  // some code 
+  const error = false;
+  const successData = 'success data';
+  const errData = 'error data';
+  if (!error) {
+    resolve(successData);
+  } else {
+    reject(errData);
+  }
+ });
 
 //  console.log(typeof myPromise);
 
-//  myPromise.then(function(data) {
-//    console.log(data);
-//    return data + ' new data added';
-//  }).then(function(newData) {
-//    console.log(newData);
-//  }).catch(function(err) {
-//    console.log(err);
-//  });
+ myPromise.then(function(data) {
+   console.log(data);
+   return data + ' new data added';
+ }).then(function(newData) {
+   console.log(newData);
+ }).catch(function(err) {
+   console.log(err);
+ });
 
 
 const posts = [
