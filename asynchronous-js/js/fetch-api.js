@@ -46,7 +46,7 @@ function getExternalData() {
       console.log(users);
       let output = '';
       users.forEach(user => {
-        output += `
+        output = output + `
           <div>
             <h3>${user.login}</h3>
             <img src="${user.avatar_url}" width="120px">
