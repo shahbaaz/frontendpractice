@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById('root');
+    // const element = document.createElement('p');
+    // element.textContent = 'Hello world';
+    // element.classList.add('container');
+    // // element.className = 'something';
+    // rootElement.appendChild(element);
+    // const element = React.createElement(
+    //   'span',
+    //   {
+    //     className: 'container',
+    //     children: ['Hello world']      
+    //   }
+    // );
+
+    const element = (
+      <span className="container">My World</span>
+    );
+    // Virtual DOM is a light weight javascript object
+    ReactDOM.render(element, rootElement);
+  </script>
+</body>
+</html>
