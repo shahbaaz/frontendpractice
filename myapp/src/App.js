@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const UsersData = [
-  { name: 'John', isActive: false },
-  { name: 'Bob', isActive: false },
-  { name: 'Frank', isActive: true },
-  { name: 'Brad', isActive: false },
-  { name: 'Mary', isActive: true },
-  { name: 'Christine', isActive: true },
-  { name: 'Jane', isActive: true },
-];
+// const UsersData = [
+//   { name: 'John', isActive: false },
+//   { name: 'Bob', isActive: false },
+//   { name: 'Frank', isActive: true },
+//   { name: 'Brad', isActive: false },
+//   { name: 'Mary', isActive: true },
+//   { name: 'Christine', isActive: true },
+//   { name: 'Jane', isActive: true },
+// ];
 
 // class Sami extends Component {
 //   render() {
@@ -71,59 +71,92 @@ const UsersData = [
 //   username: PropTypes.string.isRequired
 // };
 
-class Users extends Component {
-  render() {
-    const activeUsers = this.props.list.filter(function(user) {
-      return user.isActive === true;
-    });
-    const inactiveUsers = this.props.list.filter(user => user.isActive === false);
-    console.log('Active Users', activeUsers);
-    console.log('Inactive Users', inactiveUsers);
-    return (
-      <div>
-        <h2>Active Users</h2>
-        <ul>
-          {/* <li>John</li> */}
-          {activeUsers.map(user => {
-            return <li key={user.name}>{user.name}</li>;
-          })}
-        </ul>
-        <h2>Inactive Users</h2>
-        <ul>
-          {inactiveUsers.map(user => {
-            return <li key={user.name}>{user.name}</li>;
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
+// class Users extends Component {
+//   render() {
+//     const activeUsers = this.props.list.filter(function(user) {
+//       return user.isActive === true;
+//     });
+//     const inactiveUsers = this.props.list.filter(user => user.isActive === false);
+//     console.log('Active Users', activeUsers);
+//     console.log('Inactive Users', inactiveUsers);
+//     return (
+//       <div>
+//         <h2>Active Users</h2>
+//         <ul>
+//           {/* <li>John</li> */}
+//           {activeUsers.map(user => {
+//             return <li key={user.name}>{user.name}</li>;
+//           })}
+//         </ul>
+//         <h2>Inactive Users</h2>
+//         <ul>
+//           {inactiveUsers.map(user => {
+//             return <li key={user.name}>{user.name}</li>;
+//           })}
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
 
-Users.propTypes = {
-  list: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      isActive: PropTypes.bool.isRequired
-    })
-  )
-};
+// Users.propTypes = {
+//   list: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//       isActive: PropTypes.bool.isRequired
+//     })
+//   )
+// };
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           {/* <Sami msg="Hi" />
+//           <Sami msg="React is awesome!" />
+//           <Sami msg="My name is Sami" />
+//           <Sami msg="No message!">I am the children message</Sami>
+//           <Message content="Hello world!" /> */}
+//           {/* <Profile 
+//             img="https://avatars1.githubusercontent.com/u/293053?v=4"
+//             name="Mohammed Shahbaaz Hussain"
+//             username="shahbaaz"
+//           /> */}
+//           <Users list={UsersData} />
+//         </header>
+//       </div>
+//     );
+//   }
+// }
+// {style, ...children} = props
+function Box({style, size, className = '', ...children}) {
+  const sizeClassName = size ? `box--${size}` : '';
+  return (
+    <div 
+      className={`box ${sizeClassName}`}
+      style={{padding: 25, ...style}}
+      {...children}
+    />
+  );
+}
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <Sami msg="Hi" />
-          <Sami msg="React is awesome!" />
-          <Sami msg="My name is Sami" />
-          <Sami msg="No message!">I am the children message</Sami>
-          <Message content="Hello world!" /> */}
-          {/* <Profile 
-            img="https://avatars1.githubusercontent.com/u/293053?v=4"
-            name="Mohammed Shahbaaz Hussain"
-            username="shahbaaz"
-          /> */}
-          <Users list={UsersData} />
+          <Box 
+            size="small"
+            style={{backgroundColor: 'purple', color: 'white'}}>Small Box</Box>
+
+          <Box 
+            size="medium"
+            style={{backgroundColor: 'pink', color: 'black'}}>Medium Box</Box>
+
+          <Box 
+            size="large"
+            style={{backgroundColor: 'yellow', color: 'green'}}>Large Box</Box>
         </header>
       </div>
     );

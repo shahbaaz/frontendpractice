@@ -30,3 +30,22 @@
     transform: rotate(360deg);
   }
 }
+
+.box {
+  border: 1px solid #fff;
+}
+
+.box--small {
+  width: 60px;
+  height: 60px;
+}
+
+.box--medium {
+  width: 90px;
+  height: 90px;
+}
+
+.box--large {
+  width: 120px;
+  height: 120px;
+}
