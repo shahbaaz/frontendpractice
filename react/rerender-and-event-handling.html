@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <script type="text/babel">
+    // const rootElement = document.getElementById('root');
+    // function tick() {
+    //   const time = new Date().toLocaleTimeString();
+
+    //   // const element = `
+    //   //   <input value=${time} />
+    //   //   <input value=${time} />
+    //   // `;
+    //   // rootElement.innerHTML = element;
+
+
+    //   const element = (<div>
+    //     <input value={time} />
+    //     <input value={time} />
+    //   </div>);
+    //   ReactDOM.render(element, rootElement);
+    // }
+    // tick();
+    // setInterval(tick, 1000);
+
+  const rootElement = document.getElementById('root');
+
+  const state = { count: 0, name: '' };
+  function App() {
+    return (
+      <div>
+        <p>There have been {state.count} events</p>  
+        <p>
+          <button onClick={() => setState({count: state.count + 1})}>Increment</button>  
+        </p>
+        <p>You have typed: {state.name}</p>
+        <p>
+          <input onChange={updateName}/>  
+        </p>
+      </div>
+    );
+  }
+
+  function updateName(event) {
+    console.log(event);
+    console.log(event.nativeEvent);
+    return setState({name: event.target.value});
+  } 
+
+  function setState(newState) {
+    Object.assign(state, newState);
+    renderApp();
+  }
+
+  // setState({ count: 4 });
+
+  function renderApp() {
+    ReactDOM.render(<App />, rootElement);
+  }
+  
+  renderApp();
+  </script>
+</body>
+</html>
