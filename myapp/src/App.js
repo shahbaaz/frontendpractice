@@ -1,163 +1,69 @@
 import React, { Component } from 'react';
 import './App.css';
-// import PropTypes from 'prop-types';
 
-// const UsersData = [
-//   { name: 'John', isActive: false },
-//   { name: 'Bob', isActive: false },
-//   { name: 'Frank', isActive: true },
-//   { name: 'Brad', isActive: false },
-//   { name: 'Mary', isActive: true },
-//   { name: 'Christine', isActive: true },
-//   { name: 'Jane', isActive: true },
-// ];
+class MyForm extends Component {
+  state = {error: this.props.getErrorMessage('')};
 
-// class Sami extends Component {
-//   render() {
-//     return (
-//       <div class="container">
-//       <p>{this.props.msg}</p>
-//       <span>{this.props.children}</span>
-//       </div>
-//     );
-//   }
-// }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log(event.target[0].value);
+    // console.log('NAME', event.target.elements.name.value);
+    // console.log('EMAIL', event.target.elements.email.value);
 
-// Sami.propTypes = {
-//   msg: PropTypes.string.isRequired
-//   // boolean, PropTypes.bool
-//   // function, PropTypes.func
-// };
+    console.log('NAME NODE', this.nameNode.value);
+    console.log('EMAIL NODE', this.emailNode.value);
+    const value = this.nameNode.value;
+    const error = this.props.getErrorMessage(value);
+    if (error) {
+      console.log(`ERROR: ${error}`);  
+    } else {
+      console.log(`SUCCESS: ${value}`);
+    }
+  }
 
-// function Message(props) {
-//   return (
-//     <span>{props.content}</span>
-//   );
-// }
+  handleChange = event => {
+    // console.log(event);
+    const value = event.target.value;
+    this.setState({
+      error: this.props.getErrorMessage(value)
+    });
+  }
 
-// const Message = (props) => {
-//   return (
-//     <div>{props.content}</div>
-//   );
-// }
-
-// const Message = (props) => <div>{props.content}</div>;
-
-// class Profile extends Component {
-//   static propTypes = {
-//     img: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     username: PropTypes.string.isRequired
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <img src={this.props.img} style={{
-//           width: 200,
-//           height: 200,
-//           border: '3px solid purple'
-//         }}/>
-//         <h2>Name: {this.props.name}</h2>
-//         <h3>Username: {this.props.username}</h3>
-//       </div>
-//     );
-//   }
-// }
-
-// Profile.propTypes = {
-//   img: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   username: PropTypes.string.isRequired
-// };
-
-// class Users extends Component {
-//   render() {
-//     const activeUsers = this.props.list.filter(function(user) {
-//       return user.isActive === true;
-//     });
-//     const inactiveUsers = this.props.list.filter(user => user.isActive === false);
-//     console.log('Active Users', activeUsers);
-//     console.log('Inactive Users', inactiveUsers);
-//     return (
-//       <div>
-//         <h2>Active Users</h2>
-//         <ul>
-//           {/* <li>John</li> */}
-//           {activeUsers.map(user => {
-//             return <li key={user.name}>{user.name}</li>;
-//           })}
-//         </ul>
-//         <h2>Inactive Users</h2>
-//         <ul>
-//           {inactiveUsers.map(user => {
-//             return <li key={user.name}>{user.name}</li>;
-//           })}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
-// Users.propTypes = {
-//   list: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       name: PropTypes.string.isRequired,
-//       isActive: PropTypes.bool.isRequired
-//     })
-//   )
-// };
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           {/* <Sami msg="Hi" />
-//           <Sami msg="React is awesome!" />
-//           <Sami msg="My name is Sami" />
-//           <Sami msg="No message!">I am the children message</Sami>
-//           <Message content="Hello world!" /> */}
-//           {/* <Profile 
-//             img="https://avatars1.githubusercontent.com/u/293053?v=4"
-//             name="Mohammed Shahbaaz Hussain"
-//             username="shahbaaz"
-//           /> */}
-//           <Users list={UsersData} />
-//         </header>
-//       </div>
-//     );
-//   }
-// }
-// {style, ...children} = props
-function Box({style, size, className = '', ...children}) {
-  const sizeClassName = size ? `box--${size}` : '';
-  return (
-    <div 
-      className={`box ${sizeClassName}`}
-      style={{padding: 25, ...style}}
-      {...children}
-    />
-  );
+  render() {
+    //console.log('STATE', this.state.error);
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" name="name" onChange={this.handleChange}
+          ref={node => this.nameNode = node} />
+        </label>
+        {this.state.error ? <div style={{color: 'red'}}>{this.state.error}</div> : null}
+        <br />
+        <label>
+          Email:
+          <input type="email" name="email" 
+          ref={node => this.emailNode = node} />
+        </label>
+        <br />
+        <button disabled={Boolean(this.state.error)} type="submit">Submit</button>
+      </form>
+    );
+  }
 }
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Box 
-            size="small"
-            style={{backgroundColor: 'purple', color: 'white'}}>Small Box</Box>
-
-          <Box 
-            size="medium"
-            style={{backgroundColor: 'pink', color: 'black'}}>Medium Box</Box>
-
-          <Box 
-            size="large"
-            style={{backgroundColor: 'yellow', color: 'green'}}>Large Box</Box>
-        </header>
+         <header className="App-header">
+          <MyForm getErrorMessage={value => {
+            if (value.length < 4) {
+              return 'Value must be atleast 4 chars'
+            }
+            return null;
+          }} />
+         </header>
       </div>
     );
   }
