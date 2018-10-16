@@ -1,53 +1,71 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 
-class MyForm extends Component {
-  state = {error: this.props.getErrorMessage('')};
+class MyComp extends Component {
+  state = { data: 'My State data', persons: null };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    // console.log(event.target[0].value);
-    // console.log('NAME', event.target.elements.name.value);
-    // console.log('EMAIL', event.target.elements.email.value);
+  componentWillMount() {
+    console.log('Component will mount');
+  }
 
-    console.log('NAME NODE', this.nameNode.value);
-    console.log('EMAIL NODE', this.emailNode.value);
-    const value = this.nameNode.value;
-    const error = this.props.getErrorMessage(value);
-    if (error) {
-      console.log(`ERROR: ${error}`);  
-    } else {
-      console.log(`SUCCESS: ${value}`);
-    }
+  componentDidMount() {
+    // This is good for AJAX calls
+    console.log('Component did mount');
+    axios.get('http://jsonplaceholder.typicode.com/users')
+      .then(response => {
+        console.log('Persons data', response.data);
+        this.setState({persons: response.data});
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  componentWillReceiveProps(newProps) {
+    console.log('Component will receive props', newProps);
+  }
+
+  componentWillUpdate() {
+    console.log('Component will update');
+  }
+
+  componentDidUpdate() {
+    console.log('Component did update');
+  }
+
+  shouldComponentUpdate() {
+    // If return true, component will render
+    // If return false, component will not render
+    console.log('Should component update');
+    return true;
   }
 
   handleChange = event => {
     // console.log(event);
-    const value = event.target.value;
-    this.setState({
-      error: this.props.getErrorMessage(value)
-    });
+    this.setState({data: event.target.value});
+  }
+
+  componentWillUnmount() {
+    console.log('Component will unmount');
   }
 
   render() {
-    //console.log('STATE', this.state.error);
+    console.log('Component render');
+    const {persons, data} = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" onChange={this.handleChange}
-          ref={node => this.nameNode = node} />
-        </label>
-        {this.state.error ? <div style={{color: 'red'}}>{this.state.error}</div> : null}
-        <br />
-        <label>
-          Email:
-          <input type="email" name="email" 
-          ref={node => this.emailNode = node} />
-        </label>
-        <br />
-        <button disabled={Boolean(this.state.error)} type="submit">Submit</button>
-      </form>
+      <div>
+        <input type="text" onChange={this.handleChange} />
+        <p>{this.props.message}</p>
+        <p>{data}</p>
+        {persons ? persons.map(person => (
+          <div key={person.id} style={{paddingBottom: 10}}>
+            <p>Name: {person.name}</p>
+            <p>Email: <a href={`mailto:${person.email}`}>{person.email}</a></p>
+            <p>Website: <a href={`http://${person.website}`}>{person.website}</a></p>
+          </div>
+        )) : 'Loading...'}
+      </div>
     );
   }
 }
@@ -56,14 +74,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <header className="App-header">
-          <MyForm getErrorMessage={value => {
-            if (value.length < 4) {
-              return 'Value must be atleast 4 chars'
-            }
-            return null;
-          }} />
-         </header>
+        <header className="App-header">
+          <MyComp message="I am the React Component!" />
+        </header>
       </div>
     );
   }
