@@ -1,83 +1,41 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, {Component} from 'react';
 import './App.css';
-
-class MyComp extends Component {
-  state = { data: 'My State data', persons: null };
-
-  componentWillMount() {
-    console.log('Component will mount');
-  }
-
-  componentDidMount() {
-    // This is good for AJAX calls
-    console.log('Component did mount');
-    axios.get('http://jsonplaceholder.typicode.com/users')
-      .then(response => {
-        console.log('Persons data', response.data);
-        this.setState({persons: response.data});
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  componentWillReceiveProps(newProps) {
-    console.log('Component will receive props', newProps);
-  }
-
-  componentWillUpdate() {
-    console.log('Component will update');
-  }
-
-  componentDidUpdate() {
-    console.log('Component did update');
-  }
-
-  shouldComponentUpdate() {
-    // If return true, component will render
-    // If return false, component will not render
-    console.log('Should component update');
-    return true;
-  }
-
-  handleChange = event => {
-    // console.log(event);
-    this.setState({data: event.target.value});
-  }
-
-  componentWillUnmount() {
-    console.log('Component will unmount');
-  }
-
-  render() {
-    console.log('Component render');
-    const {persons, data} = this.state;
-    return (
-      <div>
-        <input type="text" onChange={this.handleChange} />
-        <p>{this.props.message}</p>
-        <p>{data}</p>
-        {persons ? persons.map(person => (
-          <div key={person.id} style={{paddingBottom: 10}}>
-            <p>Name: {person.name}</p>
-            <p>Email: <a href={`mailto:${person.email}`}>{person.email}</a></p>
-            <p>Website: <a href={`http://${person.website}`}>{person.website}</a></p>
-          </div>
-        )) : 'Loading...'}
-      </div>
-    );
-  }
-}
+import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+import People from './People';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <MyComp message="I am the React Component!" />
-        </header>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <ul style={{display: 'flex', listStyle: 'none'}}>
+            <li style={{marginRight: 10}}>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li style={{marginRight: 10}}>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li style={{marginRight: 10}}>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li style={{marginRight: 10}}>
+              <NavLink to="/people">People</NavLink>
+            </li>
+          </ul>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/people" component={People} />
+            <Route render={() => {
+              return <h1>Page not found!</h1>
+            }} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
